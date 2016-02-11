@@ -31,5 +31,22 @@ $app['debug']=true;
         $cars = $_SESSION['list_of_cars'];
         return $app['twig']->render('index.html.twig', array('cars'=> $cars));
     });
+
+    $app->get('/sort_cars', function() use ($app) {
+        return $app['twig']->render('car_sort.html.twig');
+    });
+
+    $app->post('/sorter', function() use ($app) {
+        $cars = $_SESSION['list_of_cars'];
+        $cars_matching_search = array();
+        foreach ($cars as $car) {
+            if ($car->worthBuying($_POST['priceInput'], $_POST['mileageInput'])) {
+            array_push($cars_matching_search, $car);
+            }
+        }
+        // *something*::filterCars($cars)
+        return $app['twig']->render('index.html.twig', array('cars' => $cars_matching_search));
+    });
+
     return $app;
  ?>

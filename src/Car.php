@@ -65,18 +65,19 @@
       {
           array_push($_SESSION['list_of_cars'], $this);
       }
+      static function filterCars($all_cars)
+      {
+          foreach ($all_cars as $car) {
+            if ($car->worthBuying($all_cars->price, $all_)) {
+              array_push($cars_matching_search, $car);
+            }
+          }
+      }
+
 
   }
 
 
-  //
-  // $cars = array($porsche, $ford, $lexus, $mercedes);
-  // $cars_matching_search = array();
-  // foreach ($cars as $car) {
-  //   if ($car->worthBuying($_GET["price"], $_GET["mileage"])) {
-  //     array_push($cars_matching_search, $car);
-  //   }
-  // }
   ?>
 
 <!-- <!DOCTYPE html>

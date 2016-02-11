@@ -4,6 +4,13 @@
     </head>
     <body>
         <h1>Cars!</h1>
+        <form action="/new_car" method="get">
+            <button type="submit">Add Car</button>
+        </form>
+        <form action="/sort_cars" method="get">
+            <button type="submit">Filter Results</button>
+        </form>
+
         <ul>
             {% for car in cars %}
             <li>{{car.getMakeModel}}</li>
@@ -13,9 +20,7 @@
                 <li><img src='{{car.getImage}}'></li>
             </ul>
             {% endfor %}
-            <form action="/new_car" method="get">
-                <button type="submit">Add Car</button>
-            </form>
+
         </ul>
     </body>
 </html>
