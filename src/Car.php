@@ -53,7 +53,7 @@
           return $this->miles;
       }
 
-      function setImage()
+      function setImage($new_image)
       {
           $this->image = $new_image;
       }
@@ -61,11 +61,15 @@
       {
           return $this->image;
       }
+      function saveCar()
+      {
+          array_push($_SESSION['list_of_cars'], $this);
+      }
 
   }
 
 
-  // 
+  //
   // $cars = array($porsche, $ford, $lexus, $mercedes);
   // $cars_matching_search = array();
   // foreach ($cars as $car) {

@@ -4,5 +4,18 @@
     </head>
     <body>
         <h1>Cars!</h1>
+        <ul>
+            {% for car in cars %}
+            <li>{{car.getMakeModel}}</li>
+            <ul>
+                <li>Price: {{car.getPrice}}</li>
+                <li>Mileage: {{car.getMileage}}</li>
+                <li><img src='{{car.getImage}}'></li>
+            </ul>
+            {% endfor %}
+            <form action="/new_car" method="get">
+                <button type="submit">Add Car</button>
+            </form>
+        </ul>
     </body>
 </html>
